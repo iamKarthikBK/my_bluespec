@@ -1,6 +1,6 @@
 # Learning BSV
 
-## Lecture 1
+## Lecture 1, 2, 3
 
 - 17:15 -> Why does the start method have 'Action' but not the result method?
 - 51:13 -> BSV preserves module hierarchy very well, by treating the smallest of elements (including registers) as modules.
@@ -19,3 +19,9 @@
 			let napot_index = fromMaybe(?, hit_index);
     (~ Via Shubham)
 ```
+
+## Lecture 3, 4, 5
+
+- 13:13 -> The BSV shorthand, for some reason it seems like it should be the other way round ??? Why would you initialize an interface with the binding for the module that's using it? Rather, we should mention all the interfaces a module with communicate with, in the port-list. in fact, we already do that. I don't understand the concept of binding interfaces with modules.
+
+- 40:13 -> at any given point of time, if we just take a look at all the rules that are available for firing, and see which ones have their condition as true, we fire a single rule, based on the priority, right? what if i haven't told the priority explicitly. assume there's 5 out of 10 rules at all posedge available for firing, with their conditions true. can we fire \emph{multiple} rules? if no, then how does bsv choose which one to fire?
