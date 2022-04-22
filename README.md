@@ -20,7 +20,7 @@
     (~ Via Shubham)
 ```
 
-## Lecture 3, 4, 5
+## Lecture 4, 5, 6
 
 - 13:13 -> The BSV shorthand, for some reason it seems like it should be the other way round ??? Why would you initialize an interface with the binding for the module that's using it? Rather, we should mention all the interfaces a module with communicate with, in the port-list. in fact, we already do that. I don't understand the concept of binding interfaces with modules.
 
