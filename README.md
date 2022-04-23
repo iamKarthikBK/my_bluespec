@@ -29,3 +29,13 @@
 -> 1:09:22 - multiple rules are executed concurrently (in the same clock cycle). details in lecture 6.
 
 - 1:27:45 - In traditional design methodologies, we write the control logic as an FSM and the data path separately, and connect them up to implement the design. is that not the same thing that the bluespec compiler is doing while scheduling rules?
+
+```code
+It's not more area.. the idea is you don't need to describe the gluc logic to control which rule fires when. It's deduced by the compiler based on what action the rules perform.. so when designing in bsv you are more focused on the behaviour of the components instead of being bogged down by scheduling logic desig .. and more importantly bluespec will catch any combo cycles which otherwise can creep in very quickly in classical languages
+12:56
+If rules are independent and mutually exclusive then there is no extra he generated for scheduling
+12:56
+Implicit conditions being separately handled on a per rule basis
+
+(~ Via Neel)
+```
