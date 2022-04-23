@@ -26,4 +26,6 @@
 
 - 40:13 -> at any given point of time, if we just take a look at all the rules that are available for firing, and see which ones have their condition as true, we fire a single rule, based on the priority, right? what if i haven't told the priority explicitly. assume there's 5 out of 10 rules at all posedge available for firing, with their conditions true. can we fire \emph{multiple} rules? if no, then how does bsv choose which one to fire?
 
--- 1:09:22 - multiple rules are executed concurrently (in the same clock cycle). details in lecture 6.
+-> 1:09:22 - multiple rules are executed concurrently (in the same clock cycle). details in lecture 6.
+
+- 1:27:45 - In traditional design methodologies, we write the control logic as an FSM and the data path separately, and connect them up to implement the design. is that not the same thing that the bluespec compiler is doing while scheduling rules?
