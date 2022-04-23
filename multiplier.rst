@@ -16,7 +16,6 @@ The ``start`` method is of type ``Action``, and accepts 2 parameters ``x`` and `
 
 .. code-block::SystemVerilog
     :linenos:
-
     method Action start(x, y) if (...);
         ...
     endmethod: start
@@ -30,7 +29,6 @@ The ``result`` method is of type ``Value``, and does not accept any parameters, 
 
 .. code-block::SystemVerilog
     :linenos:
-
     method result() if (...);
         ...
     endmethod: result
@@ -43,7 +41,6 @@ We define the ``mkMult1`` module which interfaces with ``Mult_ifc``.
 
 .. code-block::SystemVerilog
     :linenos:
-
     module mkMult1(Mult_ifc);
         ...
     endmodule: mkMult1
@@ -56,7 +53,6 @@ The ``mkMult1`` module uses three registers of type ``int``, namely ``product``,
 
 .. code-block::SystemVerilog
     :linenos:
-
     ...
     Reg#(int) product   <-  mkReg(0);
     Reg#(int) d         <-  mkReg(0);
@@ -71,7 +67,6 @@ The ``mkMult1`` module contains a single rule ``cycle`` defined as follows:
 
 .. code-block::SystemVerilog
     :linenos:
-
     rule cycle(r != 0);
         if(r[0] == 1) product <= product + d;
         d <= d << 1;
@@ -88,7 +83,6 @@ The top module is defined as follows:
 
 .. code-block::SystemVerilog
     :linenos:
-
     module mkTest(Empty);
         ...
     endmodule: mkTest
@@ -97,7 +91,6 @@ We define a ``state`` register of type ``int``, and initialise it to ``0``.
 
 .. code-block::SystemVerilog
     :linenos:
-
     Reg#(int) state <-  mkReg(0);
 
 -----------------------------------------------
@@ -108,7 +101,6 @@ We instantiate the DUT's interface (in this case, ``Mult_ifc``) and bind it to t
 
 .. code-block::SystemVerilog
     :linenos:
-
     Mult_ifc m  <-  mkMult1();
 
 -----
@@ -119,7 +111,6 @@ We write two rules ``go`` and ``finish`` in the top module.
 
 .. code-block::SystemVerilog
     :linenos:
-
     rule go(...)
         ...
     endrule: go
@@ -132,7 +123,6 @@ The ``go`` rule fires only if ``state == 0``. It invokes the ``Action`` method `
 
 .. code-block::SystemVerilog
     :linenos:
-
     rule go(state == 0)
         m.start(9, 5);
         state <= 1;
@@ -142,7 +132,6 @@ The ``finish`` rule fires only if ``state == 1``. This rule simply displays the 
 
 .. code-block::SystemVerilog
     :linenos:
-
     rule finish(state == 1)
         $display("Product = %d", m.result());
         state <= 2;
